@@ -31,7 +31,6 @@ tmr.alarm(1, 1000, tmr.ALARM_AUTO, function()
     if ((gpio.read(COLD_GPIO) == 0) and (cold_state == 1)) then
         cold_values.inc = cold_values.inc + INC_VALUE;
         cold_values.total = cold_values.total + INC_VALUE;
-        print("cold="..table_to_str(cold_values));
         write_to_file(FILE_COLD, cold_values);
     end;
     cold_state = gpio.read(COLD_GPIO);
@@ -45,7 +44,6 @@ tmr.alarm(1, 1000, tmr.ALARM_AUTO, function()
     end;
     hot_state = gpio.read(HOT_GPIO);
 
-    --print(wifi.sta.getip());
 end)
 
 -- каждую минуту отправляем данные
@@ -58,8 +56,6 @@ tmr.alarm(2, 60000, 1, function()
     if (tonumber(cold_values.inc) > 0) or (tonumber(hot_values.inc) > 0) then
         conn = net.createConnection(net.TCP, 0)
         conn:on("receive", function(con, receive)
-
-            --print(receive);
         
             cold_values.inc = 0;
             write_to_file(FILE_COLD, cold_values);
@@ -81,8 +77,6 @@ tmr.alarm(2, 60000, 1, function()
                             settings[PARAM_HOT_FIELD_INC].."="..tostring(hot_values.inc).."&"..
                             settings[PARAM_HOT_FIELD_TOTAL].."="..tostring(hot_values.total);
             end;
-            
-            print("GET /update?key="..settings[PARAM_API_KEY]..param_str);
             
             c:send("GET /update?key="..settings[PARAM_API_KEY]..param_str
                 .." HTTP/1.1\r\n"

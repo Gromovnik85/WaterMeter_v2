@@ -49,7 +49,6 @@ end;
 function table_to_str(tbl)
     local result = {}
     for k, v in pairs(tbl) do
-        --print(k .. "=" .. val_to_str( v ) )
         table.insert( result, k .. "=" .. val_to_str( v ) )
     end
     return "{" .. table.concat( result, "," ) .. "}"
@@ -67,7 +66,6 @@ end;
 function read_from_file(fileName)
     if (file.open(fileName, "r")) then
         str = file.read();
-        --print(str);
         file.close();
         if (str == nil) or (str == "") then
             return {};
@@ -103,12 +101,6 @@ if (settings[PARAM_SSID] == nil) then
     settings[PARAM_HOT_FIELD_INC] = "";
     settings[PARAM_HOT_FIELD_TOTAL] = "";
 end;
-
-print("settings="..table_to_str(settings));
-print("cold="..table_to_str(cold_values));
-print("hot="..table_to_str(hot_values));
-
-uart.write(0, "Начинаем программу\n");
 
 led_off();
 
