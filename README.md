@@ -6,3 +6,7 @@
 
 ## Принцип работы
 Каждую секунду проверяются состояния выводов, к которым подключены счетчики. Как только на выводе появляется 0 увеличиваются на 10 литров соответствующие значения. Значения на сервер передаются каждую минуту. 
+
+![](https://github.com/LukyanovAnatoliy/WaterMeter_v2/blob/master/image/img1.jpg)
+![](https://github.com/LukyanovAnatoliy/WaterMeter_v2/blob/master/image/img2.jpg)
+![](https://github.com/LukyanovAnatoliy/WaterMeter_v2/blob/master/image/img3.jpg)
