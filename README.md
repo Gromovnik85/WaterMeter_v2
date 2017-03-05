@@ -1,4 +1,5 @@
-﻿## Описание
+<a href='https://play.google.com/store/apps/details?id=lav.watermeter&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="180" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+## Описание
 Данное устройство предназначено для сбора данных по расходу воды с импульсных счетчиков. В данном варианте для хранения данных используется сервис [thingspeak](https://thingspeak.com/). В качестве основного модуля использовалась ESP-03. Прошивка модуля собрана при помощи [online-конструктора](http://nodemcu-build.com) (модули file, gpio, net, node, tmr, uart, wifi).
 
 ## Настройка
